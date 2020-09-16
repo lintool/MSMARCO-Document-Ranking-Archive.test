@@ -48,6 +48,13 @@
 
 
     <script type="text/javascript">
+      function description_format(s) {
+        if (s)
+          return "<b>" + s + "</s>";
+        else
+          return "";
+      }
+
       function paper_link(link) {
         if (link)
           return "[<a href='" + link + "' target='_blank'>paper</a>]";
@@ -75,7 +82,7 @@
         allow_download: false,
         csv_options: {separator: ',', delimiter: '"'},
         datatables_options: {"paging": false},
-        custom_formatting: [[4, paper_link], [5, code_link], [8, tweet_link]]
+        custom_formatting: [[3, description_format], [5, paper_link], [6, code_link], [9, tweet_link]]
       });
     </script>
   </body>
