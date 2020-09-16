@@ -48,12 +48,34 @@
 
 
     <script type="text/javascript">
+      function paper_link(link) {
+        if (link)
+          return "[<a href='" + link + "' target='_blank'>paper</a>]";
+        else
+          return "";
+      }
+
+      function code_link(link) {
+        if (link)
+          return "[<a href='" + link + "' target='_blank'>code</a>]";
+        else
+          return "";
+      }
+
+      function tweet_link(tweetid) {
+        if (tweetid)
+          return "[<a href=\"https://twitter.com/MSMarcoAI/status/" + tweetid + "\" target=\"_blank\">tweet</a>]";
+        else
+          return "";
+      }
+
       CsvToHtmlTable.init({
         csv_path: "leaderboard.csv",
         element: "table-container", 
         allow_download: false,
         csv_options: {separator: ',', delimiter: '"'},
-        datatables_options: {"paging": false}
+        datatables_options: {"paging": false},
+        custom_formatting: [[4, paper_link], [5, code_link], [8, tweet_link]]
       });
     </script>
   </body>
